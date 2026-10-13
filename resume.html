@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - JobReady</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-briefcase"></i>
+            <span>JobReady</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="#" class="active"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="#"><i class="fas fa-video"></i> Interview</a>
+            <button class="login-btn" onclick="showLogin()">
+                <i class="fas fa-user"></i> Login
+            </button>
+        </div>
+    </nav>
+
+    <!-- Resume Builder Form -->
+    <div class="resume-container">
+        <div class="resume-form">
+            <h2><i class="fas fa-file-alt"></i> Build Your Resume</h2>
+            
+            <!-- Personal Information -->
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="form-section">
+                <h3>Education</h3>
+                <div id="education-container">
+                    <div class="education-entry form-grid">
+                        <div class="form-group">
+                            <label>Degree</label>
+                            <input type="text" class="degree" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Institution</label>
+                            <input type="text" class="institution" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Year</label>
+                            <input type="text" class="year" required>
+                        </div>
+                        <div class="form-group">
+                            <label>GPA</label>
+                            <input type="text" class="gpa">
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addEducation()">
+                    <i class="fas fa-plus"></i> Add Education
+                </button>
+            </div>
+
+            <!-- Experience -->
+            <div class="form-section">
+                <h3>Work Experience</h3>
+                <div id="experience-container">
+                    <div class="experience-entry form-grid">
+                        <div class="form-group">
+                            <label>Position</label>
+                            <input type="text" class="position" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Company</label>
+                            <input type="text" class="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration</label>
+                            <input type="text" class="duration" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Responsibilities</label>
+                            <textarea class="responsibilities" rows="3" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="add-btn" onclick="addExperience()">
+                    <i class="fas fa-plus"></i> Add Experience
+                </button>
+            </div>
+
+            <!-- Skills -->
+            <div class="form-section">
+                <h3>Skills</h3>
+                <div class="form-group">
+                    <label>Skills (separate with commas)</label>
+                    <textarea id="skills" rows="3" required></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn" onclick="generateResume()">
+                <i class="fas fa-file-download"></i> Generate Resume
+            </button>
+
+            <div class="resume-actions">
+                <button class="action-btn">
+                    <i class="fas fa-save"></i> Save Resume
+                </button>
+                <a href="resume-suggestions.html" class="action-btn suggestion-btn">
+                    <i class="fas fa-lightbulb"></i> Resume Tips
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" onclick="hideLogin()">&times;</span>
+            <h2>Login</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-submit">Login</button>
+                <p class="form-footer">Don't have an account? <a href="#">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Suggestions - JobReady</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-briefcase"></i>
+            <span>JobReady</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="interview.html"><i class="fas fa-video"></i> Interview</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <button class="login-btn" onclick="showLogin()">
+                <i class="fas fa-user"></i> Login
+            </button>
+        </div>
+    </nav>
+
+    <!-- Resume Suggestions Container -->
+    <div class="interview-container">
+        <div class="interview-content">
+            <div class="interview-header">
+                <h1>Resume Building Guide</h1>
+                <p>Essential elements to create a powerful resume</p>
+            </div>
+
+            <!-- Key Sections -->
+            <div class="interview-main">
+                <div class="qa-section">
+                    <!-- Professional Summary -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-user-circle"></i> Professional Summary</h3>
+                        <div class="answer-text">
+                            <ul>
+                                <li>Brief 2-3 sentence overview of your career</li>
+                                <li>Highlight key achievements and specializations</li>
+                                <li>Tailor to specific job requirements</li>
+                                <li>Use strong action words</li>
+                            </ul>
+                            <div class="example">
+                                <h4>Example:</h4>
+                                <p>"Results-driven software engineer with 5+ years of experience in full-stack development. Specialized in building scalable web applications using modern JavaScript frameworks. Proven track record of reducing application load time by 40%."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                        <div class="answer-text">
+                            <ul>
+                                <li>List experiences in reverse chronological order</li>
+                                <li>Include company name, position, and dates</li>
+                                <li>Focus on achievements rather than duties</li>
+                                <li>Use metrics and numbers to quantify success</li>
+                                <li>Include relevant technologies and tools used</li>
+                            </ul>
+                            <div class="example">
+                                <h4>Format:</h4>
+                                <p>Position - Company Name<br>
+                                Date Range<br>
+                                • Achievement 1 with metrics<br>
+                                • Achievement 2 with impact<br>
+                                • Technologies used</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="answer-text">
+                            <ul>
+                                <li>List degrees in reverse chronological order</li>
+                                <li>Include institution name and location</li>
+                                <li>Add graduation date (or expected)</li>
+                                <li>Mention relevant coursework</li>
+                                <li>Include GPA if above 3.5</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-cogs"></i> Skills</h3>
+                        <div class="answer-text">
+                            <ul>
+                                <li>Organize skills by categories</li>
+                                <li>List technical skills first</li>
+                                <li>Include proficiency levels</li>
+                                <li>Add soft skills relevant to the position</li>
+                                <li>Keep skills section concise and relevant</li>
+                            </ul>
+                            <div class="example">
+                                <h4>Categories:</h4>
+                                <p>• Programming Languages<br>
+                                • Frameworks & Tools<br>
+                                • Soft Skills<br>
+                                • Languages</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projects & Achievements -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-trophy"></i> Projects & Achievements</h3>
+                        <div class="answer-text">
+                            <ul>
+                                <li>Highlight significant projects</li>
+                                <li>Include personal or open source contributions</li>
+                                <li>Mention awards and certifications</li>
+                                <li>Add links to live projects or repositories</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pro Tips Section -->
+            <div class="feedback-box">
+                <h3>Pro Tips</h3>
+                <div class="feedback-text">
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Formatting</h4>
+                            <ul>
+                                <li>Use consistent formatting</li>
+                                <li>Keep it to 1-2 pages</li>
+                                <li>Use clear, readable fonts</li>
+                                <li>Include white space</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h4>Common Mistakes</h4>
+                            <ul>
+                                <li>Spelling errors</li>
+                                <li>Generic descriptions</li>
+                                <li>Too much text</li>
+                                <li>Irrelevant information</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Keywords</h4>
+                            <ul>
+                                <li>Include industry keywords</li>
+                                <li>Match job description</li>
+                                <li>Use action verbs</li>
+                                <li>Be specific</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="interview-controls">
+                <a href="resume.html" class="control-btn primary">
+                    <i class="fas fa-edit"></i> Create Resume
+                </a>
+                <a href="#" class="control-btn secondary">
+                    <i class="fas fa-download"></i> Download Guide
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

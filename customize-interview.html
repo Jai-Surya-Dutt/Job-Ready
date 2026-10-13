@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Interview - JobReady</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-briefcase"></i>
+            <span>JobReady</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="interview.html"><i class="fas fa-video"></i> Interview</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <button class="login-btn" onclick="showLogin()">
+                <i class="fas fa-user"></i> Login
+            </button>
+        </div>
+    </nav>
+
+    <!-- Customize Interview Container -->
+    <div class="interview-container">
+        <div class="interview-content">
+            <div class="interview-header">
+                <h1>Customize Your Interview</h1>
+                <p>Tailor your interview experience to match your needs</p>
+            </div>
+
+            <div class="interview-main">
+                <div class="qa-section">
+                    <!-- Job Profile Section -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-user-tie"></i> Job Profile</h3>
+                        <div class="answer-text">
+                            <div class="form-group">
+                                <label for="jobRole">Position You're Applying For</label>
+                                <select id="jobRole" required>
+                                    <option value="">Select Role</option>
+                                    <option value="software-engineer">Software Engineer</option>
+                                    <option value="data-scientist">Data Scientist</option>
+                                    <option value="product-manager">Product Manager</option>
+                                    <option value="ux-designer">UX Designer</option>
+                                    <option value="marketing">Marketing Manager</option>
+                                    <option value="sales">Sales Representative</option>
+                                    <option value="custom">Other (Custom)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="customRoleGroup" style="display: none;">
+                                <label for="customRole">Specify Your Role</label>
+                                <input type="text" id="customRole" placeholder="Enter your job role">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experienceLevel">Experience Level</label>
+                                <select id="experienceLevel" required>
+                                    <option value="">Select Experience</option>
+                                    <option value="entry">Entry Level (0-2 years)</option>
+                                    <option value="mid">Mid Level (3-5 years)</option>
+                                    <option value="senior">Senior Level (5+ years)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interview Type Section -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-tasks"></i> Interview Type</h3>
+                        <div class="answer-text">
+                            <div class="form-group">
+                                <label for="interviewType">Interview Focus</label>
+                                <select id="interviewType" required>
+                                    <option value="">Select Interview Type</option>
+                                    <option value="technical">Technical Interview</option>
+                                    <option value="behavioral">Behavioral Interview</option>
+                                    <option value="mixed">Mixed (Technical & Behavioral)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="difficulty">Interview Difficulty</label>
+                                <select id="difficulty" required>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">Interview Duration</label>
+                                <select id="duration" required>
+                                    <option value="15">15 minutes</option>
+                                    <option value="30">30 minutes</option>
+                                    <option value="45">45 minutes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Focus Section -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-cogs"></i> Skills Focus</h3>
+                        <div class="answer-text">
+                            <div class="form-group">
+                                <label for="keySkills">Key Skills to Focus On</label>
+                                <div class="skills-grid">
+                                    <div class="skill-category">
+                                        <h4>Technical Skills</h4>
+                                        <div class="skill-options">
+                                            <label><input type="checkbox" value="programming"> Programming</label>
+                                            <label><input type="checkbox" value="algorithms"> Algorithms</label>
+                                            <label><input type="checkbox" value="system-design"> System Design</label>
+                                            <label><input type="checkbox" value="databases"> Databases</label>
+                                        </div>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h4>Soft Skills</h4>
+                                        <div class="skill-options">
+                                            <label><input type="checkbox" value="communication"> Communication</label>
+                                            <label><input type="checkbox" value="leadership"> Leadership</label>
+                                            <label><input type="checkbox" value="problem-solving"> Problem Solving</label>
+                                            <label><input type="checkbox" value="teamwork"> Teamwork</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interview Preferences -->
+                    <div class="question-box">
+                        <h3><i class="fas fa-sliders-h"></i> Interview Preferences</h3>
+                        <div class="answer-text">
+                            <div class="form-group">
+                                <label for="questionCount">Number of Questions</label>
+                                <select id="questionCount" required>
+                                    <option value="5">5 Questions</option>
+                                    <option value="10">10 Questions</option>
+                                    <option value="15">15 Questions</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedbackType">Feedback Type</label>
+                                <select id="feedbackType" required>
+                                    <option value="detailed">Detailed Feedback</option>
+                                    <option value="concise">Concise Feedback</option>
+                                    <option value="mixed">Mixed (Detailed & Concise)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timer">Answer Timer</label>
+                                <select id="timer" required>
+                                    <option value="60">1 minute per question</option>
+                                    <option value="120">2 minutes per question</option>
+                                    <option value="180">3 minutes per question</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="interview-controls">
+                <button class="control-btn secondary" onclick="savePreferences()">
+                    <i class="fas fa-save"></i> Save Preferences
+                </button>
+                <button class="control-btn primary" onclick="startCustomizedInterview()">
+                    <i class="fas fa-play"></i> Start Interview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="customize-interview.js"></script>
+</body>
+</html> 

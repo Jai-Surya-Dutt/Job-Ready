@@ -1,0 +1,248 @@
+// Modal functionality
+function showLogin() {
+    document.getElementById('loginModal').style.display = 'block';
+}
+
+function hideLogin() {
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('loginModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Prevent form submission (for demo purposes)
+document.querySelector('.login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Add your login logic here
+    alert('Login functionality would go here');
+});
+
+// Scroll effect for navigation
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// Mobile menu functionality
+const menuToggle = document.createElement('div');
+menuToggle.classList.add('menu-toggle');
+menuToggle.innerHTML = `
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+`;
+document.querySelector('nav').appendChild(menuToggle);
+
+menuToggle.addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+
+// Mobile menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const links = document.querySelectorAll('.nav-links a');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking links
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Active link highlighting
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 60) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').slice(1) === current) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Add Education Entry
+function addEducation() {
+    const container = document.getElementById('education-container');
+    const newEntry = document.createElement('div');
+    newEntry.className = 'education-entry form-grid';
+    newEntry.innerHTML = `
+        <div class="form-group">
+            <label>Degree</label>
+            <input type="text" class="degree" required>
+        </div>
+        <div class="form-group">
+            <label>Institution</label>
+            <input type="text" class="institution" required>
+        </div>
+        <div class="form-group">
+            <label>Year</label>
+            <input type="text" class="year" required>
+        </div>
+        <div class="form-group">
+            <label>GPA</label>
+            <input type="text" class="gpa">
+        </div>
+    `;
+    container.appendChild(newEntry);
+}
+// Add Experience Entry
+function addExperience() {
+    const container = document.getElementById('experience-container');
+    const newEntry = document.createElement('div');
+    newEntry.className = 'experience-entry form-grid';
+    newEntry.innerHTML = `
+        <div class="form-group">
+            <label>Position</label>
+            <input type="text" class="position" required>
+        </div>
+        <div class="form-group">
+            <label>Company</label>
+            <input type="text" class="company" required>
+        </div>
+        <div class="form-group">
+            <label>Duration</label>
+            <input type="text" class="duration" required>
+        </div>
+        <div class="form-group full-width">
+            <label>Responsibilities</label>
+            <textarea class="responsibilities" rows="3" required></textarea>
+        </div>
+    `;
+    container.appendChild(newEntry);
+}
+
+// Generate Resume
+function generateResume() {
+    // Collect form data
+    const formData = {
+        personalInfo: {
+            fullName: document.getElementById('fullName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            location: document.getElementById('location').value
+        },
+        education: Array.from(document.getElementsByClassName('education-entry')).map(entry => ({
+            degree: entry.querySelector('.degree').value,
+            institution: entry.querySelector('.institution').value,
+            year: entry.querySelector('.year').value,
+            gpa: entry.querySelector('.gpa').value
+        })),
+        experience: Array.from(document.getElementsByClassName('experience-entry')).map(entry => ({
+            position: entry.querySelector('.position').value,
+            company: entry.querySelector('.company').value,
+            duration: entry.querySelector('.duration').value,
+            responsibilities: entry.querySelector('.responsibilities').value
+        })),
+        skills: document.getElementById('skills').value.split(',').map(skill => skill.trim())
+    };
+
+    // For now, just alert that the resume is generated
+    alert('Resume generated! Implementation for PDF generation would go here.');
+    console.log(formData);
+}
+
+// Function to show login form
+function showLoginForm() {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    loginForm.style.display = 'block';
+    signupForm.style.display = 'none';
+}
+
+// Function to show signup form
+function showSignupForm() {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    loginForm.style.display = 'none';
+    signupForm.style.display = 'block';
+}
+
+// Simplify the login button click handler
+const loginBtn = document.querySelector('.login-btn');
+const modal = document.getElementById('loginModal');
+
+loginBtn.onclick = function() {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    loginForm.style.display = 'block';
+    signupForm.style.display = 'none';
+}
+
+// Toggle between login and signup forms
+const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+const showSignupLink = document.getElementById('showSignup');
+const showLoginLink = document.getElementById('showLogin');
+
+showSignupLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    loginForm.style.display = 'none';
+    signupForm.style.display = 'block';
+});
+
+showLoginLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    signupForm.style.display = 'none';
+    loginForm.style.display = 'block';
+});
+
+// Handle signup form submission
+document.querySelector('#signupForm form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    // Here you would typically handle the signup logic
+    console.log('Signup attempted with:', { name, email });
+    
+    // For demo purposes, show success message
+    alert('Account created successfully!');
+    modal.style.display = 'none';
+});
+
+// Update existing login form submission handler
+document.querySelector('#loginForm form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    // Here you would typically handle the login logic
+    console.log('Login attempted with:', email);
+    
+    // For demo purposes, show success message
+    alert('Login successful!');
+    modal.style.display = 'none';
+});

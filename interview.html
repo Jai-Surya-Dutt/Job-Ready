@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview - JobReady</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-briefcase"></i>
+            <span>JobReady</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <button class="login-btn" onclick="showLogin()">
+                <i class="fas fa-user"></i> Login
+            </button>
+        </div>
+    </nav>
+
+    <!-- Job Profile Setup Section -->
+    <div class="interview-container" id="profileSetup">
+        <div class="profile-setup-content">
+            <div class="setup-header">
+                <h1>Prepare Your Interview</h1>
+                <p>Let's customize your interview experience</p>
+            </div>
+
+            <div class="setup-form">
+                <div class="form-section">
+                    <h3>Job Profile Information</h3>
+                    <div class="form-group">
+                        <label for="jobRole">Position You're Applying For</label>
+                        <select id="jobRole" required>
+                            <option value="">Select Role</option>
+                            <option value="software-engineer">Software Engineer</option>
+                            <option value="data-scientist">Data Scientist</option>
+                            <option value="product-manager">Product Manager</option>
+                            <option value="ux-designer">UX Designer</option>
+                            <option value="marketing">Marketing Manager</option>
+                            <option value="sales">Sales Representative</option>
+                            <option value="custom">Other (Custom)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="customRoleGroup" style="display: none;">
+                        <label for="customRole">Specify Your Role</label>
+                        <input type="text" id="customRole" placeholder="Enter your job role">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experienceLevel">Experience Level</label>
+                        <select id="experienceLevel" required>
+                            <option value="">Select Experience</option>
+                            <option value="entry">Entry Level (0-2 years)</option>
+                            <option value="mid">Mid Level (3-5 years)</option>
+                            <option value="senior">Senior Level (5+ years)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keySkills">Key Skills (comma-separated)</label>
+                        <textarea id="keySkills" rows="3" placeholder="e.g., Python, JavaScript, Project Management"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interviewType">Interview Focus</label>
+                        <select id="interviewType" required>
+                            <option value="">Select Interview Type</option>
+                            <option value="technical">Technical Interview</option>
+                            <option value="behavioral">Behavioral Interview</option>
+                            <option value="mixed">Mixed (Technical & Behavioral)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Interview Preferences</h3>
+                    <div class="form-group">
+                        <label for="difficulty">Interview Difficulty</label>
+                        <select id="difficulty" required>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Interview Duration</label>
+                        <select id="duration" required>
+                            <option value="15">15 minutes</option>
+                            <option value="30">30 minutes</option>
+                            <option value="45">45 minutes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="start-interview-btn" onclick="startCustomizedInterview()">
+                    <i class="fas fa-play"></i> Start Customized Interview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interview Interface (Initially Hidden) -->
+    <div class="interview-container" id="interviewInterface" style="display: none;">
+        <div class="interview-content">
+            <div class="interview-header">
+                <h1>AI Mock Interview</h1>
+                <p>Practice your interview skills with our AI interviewer</p>
+            </div>
+
+            <div class="interview-main">
+                <!-- Video Section -->
+                <div class="video-section">
+                    <div class="video-container">
+                        <video id="userVideo" autoplay muted playsinline></video>
+                        <div class="video-controls">
+                            <button id="cameraToggle" class="control-btn">
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <button id="micToggle" class="control-btn">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button id="settingsToggle" class="control-btn">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interview Q&A Section -->
+                <div class="qa-section">
+                    <div class="question-box">
+                        <h3>Current Question:</h3>
+                        <p id="currentQuestion">Tell me about yourself and your experience.</p>
+                        <div class="timer">Time Remaining: <span id="timer">60</span>s</div>
+                    </div>
+
+                    <div class="answer-box">
+                        <h3>Your Answer:</h3>
+                        <div id="answerText" class="answer-text">
+                            [Your response will appear here as you speak...]
+                        </div>
+                    </div>
+
+                    <div class="feedback-box">
+                        <h3>AI Feedback:</h3>
+                        <div id="feedback" class="feedback-text">
+                            Waiting for your response...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interview-controls">
+                <button class="control-btn secondary" id="previousBtn">
+                    <i class="fas fa-backward"></i> Previous
+                </button>
+                <button class="control-btn primary" id="startBtn">
+                    <i class="fas fa-play"></i> Start Interview
+                </button>
+                <button class="control-btn secondary" id="nextBtn">
+                    Next <i class="fas fa-forward"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this new feedback section (initially hidden) -->
+    <div class="feedback-section" id="feedbackSection" style="display: none;">
+        <div class="feedback-message">
+            <h3>Interview Completed!</h3>
+            <p>Great job! Would you like to see your detailed feedback and improvement suggestions?</p>
+            <a href="solution.html" class="feedback-btn">
+                <i class="fas fa-chart-line"></i> View Detailed Feedback
+            </a>
+        </div>
+    </div>
+
+    <script src="interview.js"></script>
+</body>
+</html> 

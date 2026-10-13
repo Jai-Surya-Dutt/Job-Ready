@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobReady - Resume Builder & Mock Interviews</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-briefcase"></i>
+            <span>JobReady</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+            <a href="interview.html"><i class="fas fa-video"></i> Interview</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <a href="login.html" class="login-btn">
+                <i class="fas fa-user"></i> Login
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Build Your Career Path</h1>
+            <p>Create professional resumes and practice interviews to land your dream job</p>
+            <div class="cta-buttons">
+                <a href="resume.html" class="primary-btn">
+                    <i class="fas fa-file-alt"></i> Build Resume
+                </a>
+                <a href="interview.html" class="secondary-btn">
+                    <i class="fas fa-video"></i> Practice Interview
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="number">10K+</span>
+                    <span class="label">Success Stories</span>
+                </div>
+                <div class="stat">
+                    <span class="number">50+</span>
+                    <span class="label">Templates</span>
+                </div>
+                <div class="stat">
+                    <span class="number">24/7</span>
+                    <span class="label">Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Our Features</h2>
+        <div class="feature-cards">
+            <a href="resume.html" class="card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Resume Builder</h3>
+                <p>Create professional resumes with our easy-to-use templates</p>
+            </a>
+            <a href="interview.html" class="card">
+                <i class="fas fa-video"></i>
+                <h3>Mock Interviews</h3>
+                <p>Practice with AI-powered interview simulations</p>
+            </a>
+            <a href="about.html" class="card">
+                <i class="fas fa-info-circle"></i>
+                <h3>About Us</h3>
+                <p>Learn more about JobReady AI and our mission</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="login-container" id="loginForm">
+                <h2><i class="fas fa-user-circle"></i> Sign In</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="login-submit-btn">Sign In</button>
+                </form>
+                <div class="login-divider">
+                    <span>or</span>
+                </div>
+                <div class="social-login">
+                    <button class="google-btn">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                    <button class="linkedin-btn">
+                        <i class="fab fa-linkedin"></i> Continue with LinkedIn
+                    </button>
+                </div>
+                <div class="signup-link">
+                    Don't have an account? <a href="#" id="showSignup">Sign Up</a>
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="login-container" id="signupForm" style="display: none;">
+                <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="signupName"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="login-submit-btn">Create Account</button>
+                </form>
+                <div class="login-divider">
+                    <span>or</span>
+                </div>
+                <div class="social-login">
+                    <button class="google-btn">
+                        <i class="fab fa-google"></i> Sign up with Google
+                    </button>
+                    <button class="linkedin-btn">
+                        <i class="fab fa-linkedin"></i> Sign up with LinkedIn
+                    </button>
+                </div>
+                <div class="signup-link">
+                    Already have an account? <a href="#" id="showLogin">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
